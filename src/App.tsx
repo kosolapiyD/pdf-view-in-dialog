@@ -1,10 +1,12 @@
-// import { useState } from 'react';
-import './App.css';
+﻿import './App.css';
 
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './App.module.scss';
+import ShowDocumentDialog from './components/show-document-dialog/show-document-dialog';
 
 const App = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
   return (
     <div className={styles.page}>
       <header className={styles.header}>
@@ -31,11 +33,32 @@ const App = () => {
         </div>
       </header>
 
-      <main className={styles.main}></main>
+      <main className={styles.main}>
+        <section className={styles.dialogSection}>
+          <div className={styles.dialogCard}>
+            <div className={styles.dialogTitle}>Show a PDF dialog</div>
+            <p className={styles.dialogDescription}>
+              Launch a lightweight preview dialog with actions in the header.
+            </p>
+            <button
+              className={styles.btnPrimaryLg}
+              onClick={() => setIsDialogOpen(true)}
+              type='button'
+            >
+              Open document
+            </button>
+          </div>
+        </section>
+      </main>
+
+      <ShowDocumentDialog
+        open={isDialogOpen}
+        onClose={() => setIsDialogOpen(false)}
+      />
 
       <footer className={styles.footer}>
         <div className={styles.footerInner}>
-          <span>© {new Date().getFullYear()} DarkUI</span>
+          <span>Ac {new Date().getFullYear()} DarkUI</span>
           <div className={styles.footerLinks}>
             <a href='#features'>Features</a>
             <a href='#pricing'>Pricing</a>
