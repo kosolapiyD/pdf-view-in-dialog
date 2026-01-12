@@ -13,7 +13,7 @@
     "@tailwindcss/vite": "^4.1.18",
     "framer-motion": "^12.23.26",
     "motion": "^12.23.26",
-    "pdfjs-dist": "^5.4.449",
+    "pdfjs-dist": "^5.4.530",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-modal-sheet": "^5.2.1"
