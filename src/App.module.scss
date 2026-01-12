@@ -1,4 +1,4 @@
-$page-bg  : #0b0f17;
+﻿$page-bg  : #0b0f17;
 $surface  : #111827; // dark surface
 $surface-2: #0f172a;
 $border   : rgba(255, 255, 255, 0.08);
@@ -89,6 +89,33 @@ $accent-2 : #22c55e;
     margin    : 0 auto;
     padding   : 28px 20px 60px;
     min-height: calc(100vh - 128px);
+}
+
+.dialogSection {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    min-height     : 420px;
+}
+
+.dialogCard {
+    @include card;
+    padding       : 26px;
+    width         : min(520px, 100%);
+    display       : flex;
+    flex-direction: column;
+    gap           : 16px;
+}
+
+.dialogTitle {
+    font-size  : 22px;
+    font-weight: 700;
+}
+
+.dialogDescription {
+    margin     : 0;
+    color      : $text-dim;
+    line-height: 1.6;
 }
 
 .footer {

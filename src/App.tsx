@@ -85,18 +85,4 @@ const App = () => {
   );
 };
 
-const FeatureCard: React.FC<{ title: string; desc: string; icon: string }> = ({
-  title,
-  desc,
-  icon,
-}) => (
-  <div className={styles.featureCard}>
-    <div className={styles.featureIcon} aria-hidden='true'>
-      {icon}
-    </div>
-    <div className={styles.featureTitle}>{title}</div>
-    <div className={styles.featureDesc}>{desc}</div>
-  </div>
-);
-
 export default App;
