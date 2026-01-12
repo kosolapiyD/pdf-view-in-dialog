@@ -7,6 +7,20 @@ import ShowDocumentDialog from './components/show-document-dialog/show-document-
 const App = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
+  const handleDownload = () => {
+    const blob = new Blob(['Sample PDF download placeholder'], {
+      type: 'application/pdf',
+    });
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'sample.pdf';
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    window.URL.revokeObjectURL(url);
+  };
+
   return (
     <div className={styles.page}>
       <header className={styles.header}>
@@ -54,6 +68,7 @@ const App = () => {
       <ShowDocumentDialog
         open={isDialogOpen}
         onClose={() => setIsDialogOpen(false)}
+        onDownload={handleDownload}
       />
 
       <footer className={styles.footer}>
