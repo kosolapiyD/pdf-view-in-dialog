@@ -89,6 +89,10 @@ $accent-2 : #22c55e;
     margin    : 0 auto;
     padding   : 28px 20px 60px;
     min-height: calc(100vh - 128px);
+
+    @media (max-width: 520px) {
+        min-height: calc(100vh - 150px);
+    }
 }
 
 .dialogSection {
@@ -123,6 +127,10 @@ $accent-2 : #22c55e;
     padding   : 18px 0;
     color     : $text-dim;
 
+    @media (max-width: 520px) {
+        padding-bottom: 0;
+    }
+
     .footerInner {
         max-width      : 1120px;
         margin         : 0 auto;
@@ -135,6 +143,7 @@ $accent-2 : #22c55e;
         @media (max-width: 520px) {
             flex-direction: column;
             align-items   : flex-start;
+            gap           : 4px;
         }
 
         .footerLinks {
