@@ -1,25 +1,12 @@
 ﻿import './App.css';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styles from './App.module.scss';
 import ShowDocumentDialog from './components/show-document-dialog/show-document-dialog';
+import { base64Sample, downloadPdf } from './utils/utils';
 
 const App = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-
-  const handleDownload = () => {
-    const blob = new Blob(['Sample PDF download placeholder'], {
-      type: 'application/pdf',
-    });
-    const url = window.URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = 'sample.pdf';
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-    window.URL.revokeObjectURL(url);
-  };
 
   return (
     <div className={styles.page}>
@@ -68,7 +55,10 @@ const App = () => {
       <ShowDocumentDialog
         open={isDialogOpen}
         onClose={() => setIsDialogOpen(false)}
-        onDownload={handleDownload}
+        onDownload={() => {
+          downloadPdf('sample', base64Sample);
+        }}
+        documentBase64={base64Sample}
       />
 
       <footer className={styles.footer}>
